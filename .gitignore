@@ -1,0 +1,6 @@
+env\*
+env\
+output\
+*.log
+*.env
+*.lock

@@ -1,0 +1,17 @@
+{
+  "name": "k6-pix-cobranca",
+  "version": "1.0.0",
+  "main": "runner.js",
+  "license": "MIT",
+  "scripts": {
+    "k6": "k6 run ./runner.js",
+    "k6:login": "k6 login cloud -t TOKEN",
+    "k6:cloud": "k6 run -summary-trend-stats=\"min,avg,p(50),p(90),p(99),p(99.9),max,count\" --summary-time-unit=ms -o cloud ./runner.js",
+    "k6:full": "k6 run --summary-trend-stats=\"min,avg,p(50),p(90),p(99),p(99.9),max,count\" --summary-time-unit=ms  ./runner.js",
+    "k6:logs": "k6 run --summary-trend-stats=\"min,avg,p(50),p(90),p(99),p(99.9),max,count\" --summary-time-unit=ms  --console-output \"./output/loadtest.log\"  ./runner.js",
+    "k6:debug": "k6 run --summary-trend-stats=\"min,avg,p(50),p(90),p(99),p(99.9),max,count\" --summary-time-unit=ms --http-debug='full' ./runner.js ",
+    "k6:dashboard": "k6 run --out influxdb=http://localhost:8086/myk6db ./runner.js",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  }
+}
